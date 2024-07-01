@@ -1,3 +1,4 @@
 checkpoint/
 corpus/MAESTRO-V3/
 result/test/
+__pycache__
