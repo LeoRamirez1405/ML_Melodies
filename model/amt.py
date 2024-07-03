@@ -1,5 +1,5 @@
 #! python
-
+import os
 import pickle
 import torch
 import numpy as np
@@ -21,15 +21,20 @@ class AMT():
 
         if model_path == None:
             self.model = None
+            # print(f"model_path en el if: {self.model}")
         else:
+            # print(f"model_path en el else: {self.model}")
             with open(model_path, 'rb') as f:
                 print(f"MODELO: {model_path}")
                 print(torch.cuda.is_available())
                 if self.device == 'cpu' or not torch.cuda.is_available():
                     map_loc = torch.device('cpu')
                     self.model = torch.load(f, map_location=map_loc)
+                    print("En el if de cpu")
                 else:
                     self.model = pickle.load(f)
+                    print("model: "+self.model)
+                    print("config: "+self.config)
             self.model = self.model.to(self.device)
             self.model.eval()
             if verbose_flag is True:
@@ -59,7 +64,8 @@ class AMT():
         ## melfilter: htk
         ## normalize: none -> slaney
 
-        wave, sr = torchaudio.load(f_wav)
+        f_wav = os.path.realpath(f_wav)
+        wave, sr = torchaudio.load(f_wav,format='mp3')
         wave_mono = torch.mean(wave, dim=0)
         tr_fsconv = torchaudio.transforms.Resample(sr, self.config['feature']['sr'])
         wave_mono_16k = tr_fsconv(wave_mono)
