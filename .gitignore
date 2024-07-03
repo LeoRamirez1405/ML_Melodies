@@ -1,4 +1,6 @@
 checkpoint/
 corpus/MAESTRO-V3/
+corpus/GUITAR-V0/guitar-v0.0.0
+corpus/GUITAR-V0/list
 result/test/
 __pycache__
