@@ -14,6 +14,6 @@ if __name__ == '__main__':
                 length = audio.info.length
                 duration[file[:-4]] = (file[:-4], f'guitar-v0.0.0/mp3/{file}', f'guitar-v0.0.0/midi/{file[:-4]}.mid',  length)
 
-    csv.writer(open("./guitar-v0.0.0.csv", "w")).writerows(duration.values())
+    csv.writer(open("./guitar-v0.0.0/guitar-v0.0.0.csv", "w")).writerows(duration.values())
 
     print(duration)
