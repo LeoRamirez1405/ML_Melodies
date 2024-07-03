@@ -4,9 +4,10 @@ import matplotlib.pyplot as plt
 from sklearn.cluster import MiniBatchKMeans
 from sklearn.metrics import silhouette_score
 
-# Ruta del archivo .pkl
-file_path = '/corpus/'
 
+pkl_file_path = current_file_path = os.path.abspath(__file__)
+pkl_file_path = current_directory = os.path.dirname(pkl_file_path)
+file_path = pkl_file_path + "\\test_000.pkl"
 
 def load_features(file_path):
     if os.path.exists(file_path):
@@ -16,7 +17,7 @@ def load_features(file_path):
     else:
         raise FileNotFoundError(f" {file_path} no existe.")
 
-# Función para calcular el coeficiente de silueta para varios valores de k
+
 def calculate_silhouette_scores(features, k_values):
     silhouette_scores = []
     for k in k_values:
@@ -27,7 +28,7 @@ def calculate_silhouette_scores(features, k_values):
         print(f"k={k}, Coeficiente de silueta={silhouette_avg}")
     return silhouette_scores
 
-# Función para graficar el coeficiente de silueta
+
 def plot_silhouette_scores(k_values, silhouette_scores):
     plt.figure(figsize=(10, 6))
     plt.plot(k_values, silhouette_scores, marker='o')
@@ -38,14 +39,12 @@ def plot_silhouette_scores(k_values, silhouette_scores):
     plt.grid(True)
     plt.show()
 
-# Cargar los features desde el archivo .pkl
-features = load_features(file_path)
 
-# Definir los valores de k que se desean probar
-k_values = range(2, 11)  # Puedes ajustar este rango según tus necesidades
+features = load_features(file_path)
+k_values = range(2, 25)  
 
 # Calcular los coeficientes de silueta para los diferentes valores de k
 silhouette_scores = calculate_silhouette_scores(features, k_values)
 
-# Graficar los coeficientes de silueta
+# Graficar 
 plot_silhouette_scores(k_values, silhouette_scores)
