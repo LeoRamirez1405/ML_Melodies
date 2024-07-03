@@ -1,0 +1,3 @@
+canonical_title,split,midi_filename,audio_filename,duration
+1 copy,inference,data/mp3/1 copy.mp3,data/midi/1 copy.mid,339.30448979591836
+1,inference,data/mp3/1.mp3,data/midi/1.mid,339.30448979591836
