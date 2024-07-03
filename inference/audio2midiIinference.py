@@ -1,5 +1,5 @@
 import sys
-from amt import AMT
+from ..model import amt
 import json
 def transcribir_audio_a_midi(ruta_audio, ruta_modelo, ruta_config, ruta_salida_midi):
     """
@@ -19,7 +19,7 @@ def transcribir_audio_a_midi(ruta_audio, ruta_modelo, ruta_config, ruta_salida_m
     with open(ruta_config, 'r', encoding='utf-8') as f:
         config = json.load(f)
     # Crea una instancia de la clase AMT
-    amt_instance = AMT(config= config,model_path= ruta_modelo, batch_size=4)
+    amt_instance = amt.AMT(config= config,model_path= ruta_modelo, batch_size=4)
 
     # Convierte el audio a espectrogramas
     spectrogram = amt_instance.wav2feature(ruta_audio)
