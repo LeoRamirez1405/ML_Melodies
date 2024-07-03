@@ -1,21 +1,6 @@
 #! /bin/bash
 
-## MAESTRO v3.0.0
 CURRENT_DIR=$(pwd)
-
-# 1. download MAESTRO v3.0.0 data and expand them
-# mkdir -p $CURRENT_DIR/corpus/MAESTRO-V3
-
-# FILE=./maestro-v3.0.0.zip
-# if test -f "$FILE"; then
-#     echo "$FILE exists, proceed to unzip"
-# else 
-#     echo "$FILE does not exist. Downloading..."    
-#     wget https://storage.googleapis.com/magentadata/datasets/maestro/v3.0.0/maestro-v3.0.0.zip ./
-# fi
-
-# unzip maestro-v3.0.0.zip -d $CURRENT_DIR/corpus/MAESTRO-V3
-# $ ($CURRENT_DIR/corpus/MAESTRO-V3/maestro-v3.0.0)
 
 # 2. make lists that include train/valid/test split
 mkdir -p $CURRENT_DIR/corpus/GUITAR-V0/list

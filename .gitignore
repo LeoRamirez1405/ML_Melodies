@@ -2,5 +2,12 @@ checkpoint/
 corpus/MAESTRO-V3/
 corpus/GUITAR-V0/guitar-v0.0.0
 corpus/GUITAR-V0/list
+corpus/GUITAR-V0/dataset
+corpus/GUITAR-V0/feature
+corpus/GUITAR-V0/midi
+corpus/GUITAR-V0/mp3
+corpus/GUITAR-V0/note
+corpus/GUITAR-V0/reference
+corpus/GUITAR-V0/label
 result/test/
 __pycache__
