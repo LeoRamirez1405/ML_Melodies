@@ -19,12 +19,12 @@ CURRENT_DIR=$(pwd)
 
 # 2. make lists that include train/valid/test split
 mkdir -p $CURRENT_DIR/corpus/GUITAR-V0/list
-python3 $CURRENT_DIR/corpus/make_list_maestro.py -i $CURRENT_DIR/corpus/GUITAR-V0/guitar-v0.0.0/guitar-v0.0.0.csv -d_list $CURRENT_DIR/corpus/GUITAR-V0/list
+python3 $CURRENT_DIR/corpus/make_list_guitar.py -i $CURRENT_DIR/corpus/GUITAR-V0/guitar-v0.0.0/guitar-v0.0.0.csv -d_list $CURRENT_DIR/corpus/GUITAR-V0/list
 
 # 3. rename the files
 mkdir -p $CURRENT_DIR/corpus/GUITAR-V0/midi
 mkdir -p $CURRENT_DIR/corpus/GUITAR-V0/mp3
-python3 $CURRENT_DIR/corpus/rename_maestro.py -d_i $CURRENT_DIR/corpus/GUITAR-V0/guitar-v0.0.0 -d_o $CURRENT_DIR/corpus/GUITAR-V0 -d_list $CURRENT_DIR/corpus/GUITAR-V0/list
+python3 $CURRENT_DIR/corpus/rename_guitar.py -d_i $CURRENT_DIR/corpus/GUITAR-V0/guitar-v0.0.0 -d_o $CURRENT_DIR/corpus/GUITAR-V0 -d_list $CURRENT_DIR/corpus/GUITAR-V0/list
 
 # 4. convert wav to log-mel spectrogram
 mkdir -p $CURRENT_DIR/corpus/GUITAR-V0/feature
@@ -45,4 +45,4 @@ python3 $CURRENT_DIR/corpus/conv_note2ref.py -f_list $CURRENT_DIR/corpus/GUITAR-
 
 # 8. make dataset
 mkdir -p $CURRENT_DIR/corpus/GUITAR-V0/dataset
-python3 $CURRENT_DIR/corpus/make_dataset.py -f_config_in $CURRENT_DIR/corpus/config.json -f_config_out $CURRENT_DIR/corpus/GUITAR-V0/dataset/config.json -d_dataset $CURRENT_DIR/corpus/GUITAR-V0/dataset -d_list $CURRENT_DIR/corpus/GUITAR-V0/list -d_feature $CURRENT_DIR/corpus/GUITAR-V0/feature -d_label $CURRENT_DIR/corpus/GUITAR-V0/label -n_div_train 8 -n_div_valid 1 -n_div_test 1
+python3 $CURRENT_DIR/corpus/make_dataset_guitar.py -f_config_in $CURRENT_DIR/corpus/config.json -f_config_out $CURRENT_DIR/corpus/GUITAR-V0/dataset/config.json -d_dataset $CURRENT_DIR/corpus/GUITAR-V0/dataset -d_list $CURRENT_DIR/corpus/GUITAR-V0/list -d_feature $CURRENT_DIR/corpus/GUITAR-V0/feature -d_label $CURRENT_DIR/corpus/GUITAR-V0/label -n_div_train 8 -n_div_valid 1 -n_div_test 1
