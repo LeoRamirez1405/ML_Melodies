@@ -19,6 +19,6 @@ if __name__ == '__main__':
         fname_wav = a_in[i].rstrip('\n').split('\t')[2]
         fname_mid = a_in[i].rstrip('\n').split('\t')[1]
         number = a_in[i].rstrip('\n').split('\t')[4]
-        os.symlink(args.d_i.rstrip('/')+'/'+fname_wav, args.d_o.rstrip('/')+'/mp3/'+'global'+'_'+number+'.mp3')
-        os.symlink(args.d_i.rstrip('/')+'/'+fname_mid, args.d_o.rstrip('/')+'/midi/'+'global'+'_'+number+'.midi')
+        os.symlink(args.d_i.rstrip('/')+'/'+fname_wav, args.d_o.rstrip('/')+'/mp3/'+'global'+'_'+str(number).zfill(3)+'.mp3')
+        os.symlink(args.d_i.rstrip('/')+'/'+fname_mid, args.d_o.rstrip('/')+'/midi/'+'global'+'_'+str(number).zfill(3)+'.midi')
     print('** done **')
