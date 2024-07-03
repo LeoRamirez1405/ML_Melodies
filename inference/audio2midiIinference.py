@@ -1,5 +1,6 @@
 import sys
-from ..model import amt
+sys.path.append('/mnt/c/Users/53527/Desktop/ML_Melodies')  # Asegúrate de que esta ruta sea correcta
+from model import amt
 import json
 def transcribir_audio_a_midi(ruta_audio, ruta_modelo, ruta_config, ruta_salida_midi):
     """
@@ -25,7 +26,7 @@ def transcribir_audio_a_midi(ruta_audio, ruta_modelo, ruta_config, ruta_salida_m
     spectrogram = amt_instance.wav2feature(ruta_audio)
 
     # Realiza la transcripción
-    onset, offset, mpe, velocity = amt_instance.transcript(spectrogram)
+    onset, offset, mpe, velocity,_,_,_,_ = amt_instance.transcript(spectrogram)
 
     # Convierte a notas musicales
     notes = amt_instance.mpe2note(onset, offset, mpe, velocity)
@@ -35,7 +36,7 @@ def transcribir_audio_a_midi(ruta_audio, ruta_modelo, ruta_config, ruta_salida_m
 
     print('Archivo MIDI generado correctamente:', ruta_salida_midi)
 
-audio = "/mnt/c/Users/53527/Desktop/ML_Melodies/corpus/MAESTRO-V3/maestro-v3.0.0/2004/MIDI-Unprocessed_SMF_02_R1_2004_01-05_ORIG_MID--AUDIO_02_R1_2004_06_Track06_wav.mp3"
+audio = "/mnt/c/Users/53527/Desktop/ML_Melodies/corpus/MAESTRO-V3/maestro-v3.0.0/2004/g.mp3"
 model = "/mnt/c/Users/53527/Desktop/ML_Melodies/checkpoint/MAESTRO-V3/model_016_003.pkl"
 config = "/mnt/c/Users/53527/Desktop/ML_Melodies/corpus/MAESTRO-V3/dataset/config.json"
 output = "/mnt/c/Users/53527/Desktop/ML_Melodies/output.midi"
