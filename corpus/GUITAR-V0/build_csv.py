@@ -13,7 +13,7 @@ if __name__ == '__main__':
                 audio = MP3(os.path.join(root, file))
                 length = audio.info.length
                 #duration[file[:-4]] = (file[:-4], f'guitar-v0.0.0/mp3/{file}', f'guitar-v0.0.0/midi/{file[:-4]}.mid',  length)
-                duration[file[:-4]] = (file[:-4], f'guitar-v0.0.0/mp3/{file}', f'guitar-v0.0.0/midi/{file[:-4]}.mid',  length, str(idx).zfill(3))
+                duration[file[:-4]] = (file[:-4],f'guitar-v0.0.0/midi/{file[:-4]}.midi', f'guitar-v0.0.0/mp3/{file}' ,  length, str(idx).zfill(3))
 
     csv.writer(open("./guitar-v0.0.0/guitar-v0.0.0.csv", "w")).writerows(duration.values())
 

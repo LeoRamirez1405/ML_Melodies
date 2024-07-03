@@ -33,8 +33,6 @@ class AMT():
                     print("En el if de cpu")
                 else:
                     self.model = pickle.load(f)
-                    print("model: "+self.model)
-                    print("config: "+self.config)
             self.model = self.model.to(self.device)
             self.model.eval()
             if verbose_flag is True:
@@ -113,7 +111,12 @@ class AMT():
                     # output_mpe: [batch_size, n_frame, n_note]
                     # output_velocity: [batch_size, n_frame, n_note, n_velocity]
                 else:
-                    output_onset_A, output_offset_A, output_mpe_A, output_velocity_A = self.model(input_spec)
+                    # output_onset_A, output_offset_A, output_mpe_A, output_velocity_A = self.model(input_spec)
+                    print("-"*70)
+                    print(repr(self.model(input_spec)))
+                    print("-"*70)
+                    print(len(self.model(input_spec)))
+                    print("-"*70)
 
             a_output_onset_A[i:i+self.config['input']['num_frame']] = (output_onset_A.squeeze(0)).to('cpu').detach().numpy()
             a_output_offset_A[i:i+self.config['input']['num_frame']] = (output_offset_A.squeeze(0)).to('cpu').detach().numpy()
@@ -360,7 +363,8 @@ class AMT():
 
     def note2midi(self, a_note, f_midi):
         midi = pretty_midi.PrettyMIDI()
-        instrument = pretty_midi.Instrument(program=0)
+        # instrument = pretty_midi.Instrument(program=0)
+        instrument = pretty_midi.Instrument(program=27)
         for note in a_note:
             instrument.notes.append(pretty_midi.Note(velocity=note['velocity'], pitch=note['pitch'], start=note['onset'], end=note['offset']))
         midi.instruments.append(instrument)
