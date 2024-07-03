@@ -45,8 +45,8 @@ if __name__ == '__main__':
         number, idx = get_value(data, idx)
      
         fo_global.write(title+'\t'+fname_mid+'\t'+fname_wav+'\t'+duration+'\t'+number+'\t')
-        fo_global.write(str(num_global).zfill(3)+'\n')
-        fo_list_global.write('global_'+str(num_global).zfill(3)+'\n')
+        fo_global.write(str(number).zfill(3)+'\n')
+        fo_list_global.write('global_'+str(number).zfill(3)+'\n')
         num_global += 1
      
     fo_global.close()
