@@ -1,5 +1,5 @@
 import sys
-sys.path.append('/mnt/c/Users/53527/Desktop/ML_Melodies')  # Asegúrate de que esta ruta sea correcta
+sys.path.append('/mnt/c/Uni/4to/ML-Repo/ML_Melodies')  # Asegúrate de que esta ruta sea correcta
 from model import amt
 import json
 def transcribir_audio_a_midi(ruta_audio, ruta_modelo, ruta_config, ruta_salida_midi):
