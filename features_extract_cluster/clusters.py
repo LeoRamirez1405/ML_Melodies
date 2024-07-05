@@ -6,6 +6,7 @@ import os
 import matplotlib.pyplot as plt
 from sklearn.cluster import MiniBatchKMeans, SpectralClustering
 from sklearn.metrics import silhouette_score, davies_bouldin_score, calinski_harabasz_score
+import random
 
 # Con components = 3 en clusters = 5 ta bueno 
 """
@@ -131,18 +132,6 @@ def cluster_features(features,n_clusters):
         labels[elem] = clusters[elem]
     return labels
 
-route = "./../corpus/GUITAR-V0/feature/"
-
-features = load_all_plckle_from_folder(route)
-features_values = [values.flatten() for values in features.values()]
-# features_values = {k:v.flatten() for k,v in features.items()}
-# print(features_values)
-
-k_values = range(2, 8)
-cluster_feat = cluster_features(features_values,5)
-
-import random
-
 def split_dict(original_dict):
     # Paso 1: Agrupar las claves por valor
     grupos = {}
@@ -168,8 +157,11 @@ def split_dict(original_dict):
     validation = ["global_"+str(k).zfill(3) for k, v in validation.items()]
     return train, validation, test
 
-
-train, validation, test = split_dict(cluster_feat)
+def get_splits(route = "./../corpus/GUITAR-V0/feature/"):
+    features = load_all_plckle_from_folder(route)
+    features_values = [values.flatten() for values in features.values()]
+    cluster_feat = cluster_features(features_values,5)
+    return split_dict(cluster_feat)
 
 # Imprimir tamaños de los conjuntos
 # print(f"Train: {len(train)}, Validation: {len(validation)}, Test: {len(test)}")
