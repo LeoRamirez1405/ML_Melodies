@@ -163,20 +163,18 @@ def split_dict(original_dict):
         validation.update({k: valor for k in claves[idx_train:idx_val]})
         test.update({k: valor for k in claves[idx_val:]})
 
+    train = ["global_"+str(k).zfill(3) for k, v in train.items()]
+    test = ["global_"+str(k).zfill(3) for k, v in test.items()]
+    validation = ["global_"+str(k).zfill(3) for k, v in validation.items()]
     return train, validation, test
 
 
 train, validation, test = split_dict(cluster_feat)
 
 # Imprimir tamaños de los conjuntos
-print(f"Train: {len(train)}, Validation: {len(validation)}, Test: {len(test)}")
-print(f"Train: {train}, Validation: {validation}, Test: {test}")
-
-
-
-
+# print(f"Train: {len(train)}, Validation: {len(validation)}, Test: {len(test)}")
+# print(f"Train: {train}, Validation: {validation}, Test: {test}")
 # metrics = calculate_clustering_metrics(features_values, k_values)
-
 # Graficar
 # plot_metrics(k_values, metrics)
 
