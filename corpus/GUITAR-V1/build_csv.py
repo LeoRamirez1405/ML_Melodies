@@ -18,7 +18,7 @@ def get_split_dict(items, split: str, idx):
         print('-'*50)
         audio = MP3(path)
         length = audio.info.length
-        dict_[name] = (name, split, f'guitar-v0.0.0/midi/{name}.midi', f'guitar-v0.0.0/mp3/{name}' ,  length, str(idx).zfill(3))
+        dict_[name] = (name, split, f'midi/{name}.midi', f'mp3/{name}.mp3' ,  length, str(idx).zfill(3))
         idx += 1
         
     return dict_
@@ -27,14 +27,14 @@ if __name__ == '__main__':
     train, val, test = get_splits()
     
     dict_ = dict()
-    dict_['sample'] = ('canonical_title','split', 'midi_filename','audio_filename','duration')
+    dict_['sample'] = ('canonical_title','split', 'midi_filename','audio_filename','duration','number')
     
     idx = 0
     
     train = get_split_dict(train, 'train', idx)
     idx += len(train)
     
-    val = get_split_dict(val, 'val', idx)
+    val = get_split_dict(val, 'validation', idx)
     idx += len(train)
     
     test = get_split_dict(test, 'test', idx)

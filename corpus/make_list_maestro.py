@@ -34,10 +34,10 @@ if __name__ == '__main__':
     fo_list_train = open(d_list+'/train.list', 'w', encoding='utf-8')
     fo_list_valid = open(d_list+'/valid.list', 'w', encoding='utf-8')
 
-    fo_test.write('canonical_composer\tcanonical_title\tsplit\tyear\tmidi_filename\taudio_filename\tduration\tnumber\n')
-    fo_train.write('canonical_composer\tcanonical_title\tsplit\tyear\tmidi_filename\taudio_filename\tduration\tnumber\n')
-    fo_valid.write('canonical_composer\tcanonical_title\tsplit\tyear\tmidi_filename\taudio_filename\tduration\tnumber\n')
-
+    fo_test.write('canonical_title\tsplit\tmidi_filename\taudio_filename\tduration\tnumber\n')
+    fo_train.write('canonical_title\tsplit\tmidi_filename\taudio_filename\tduration\tnumber\n')
+    fo_valid.write('canonical_title\tsplit\tmidi_filename\taudio_filename\tduration\tnumber\n')
+    
     num_train = 0
     num_test = 0
     num_valid = 0
@@ -46,25 +46,24 @@ if __name__ == '__main__':
         data = a_in[i].rstrip('\n').replace('""', '').split(',')
         idx = 0
 
-        composer, idx = get_value(data, idx)
         title, idx = get_value(data, idx)
         split, idx = get_value(data, idx)
-        year, idx = get_value(data, idx)
         fname_mid, idx = get_value(data, idx)
         fname_wav, idx = get_value(data, idx)
         duration, idx = get_value(data, idx)
+        
         if split == 'test':
-            fo_test.write(composer+'\t'+title+'\t'+split+'\t'+year+'\t'+fname_mid+'\t'+fname_wav+'\t'+duration+'\t')
+            fo_test.write(title+'\t'+split+'\t'+fname_mid+'\t'+fname_wav+'\t'+duration+'\t')
             fo_test.write(str(num_test).zfill(3)+'\n')
             fo_list_test.write('test_'+str(num_test).zfill(3)+'\n')
             num_test += 1
         elif split == 'train':
-            fo_train.write(composer+'\t'+title+'\t'+split+'\t'+year+'\t'+fname_mid+'\t'+fname_wav+'\t'+duration+'\t')
+            fo_train.write(title+'\t'+split+'\t'+fname_mid+'\t'+fname_wav+'\t'+duration+'\t')
             fo_train.write(str(num_train).zfill(3)+'\n')
             fo_list_train.write('train_'+str(num_train).zfill(3)+'\n')
             num_train += 1
         elif split == 'validation':
-            fo_valid.write(composer+'\t'+title+'\t'+split+'\t'+year+'\t'+fname_mid+'\t'+fname_wav+'\t'+duration+'\t')
+            fo_valid.write(title+'\t'+split+'\t'+fname_mid+'\t'+fname_wav+'\t'+duration+'\t')
             fo_valid.write(str(num_valid).zfill(3)+'\n')
             fo_list_valid.write('valid_'+str(num_valid).zfill(3)+'\n')
             num_valid += 1

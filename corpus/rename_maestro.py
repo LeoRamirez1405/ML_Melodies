@@ -18,9 +18,9 @@ if __name__ == '__main__':
         for i in range(1, len(a_in)):
             print(a_in[i])
             print("-----------------")
-            fname_wav = a_in[i].rstrip('\n').split('\t')[5]
-            fname_mid = a_in[i].rstrip('\n').split('\t')[4]
-            number = a_in[i].rstrip('\n').split('\t')[7]
+            fname_wav = a_in[i].rstrip('\n').split('\t')[3]
+            fname_mid = a_in[i].rstrip('\n').split('\t')[2]
+            number = a_in[i].rstrip('\n').split('\t')[5]
             os.symlink(args.d_i.rstrip('/')+'/'+fname_wav, args.d_o.rstrip('/')+'/mp3/'+attribute+'_'+number+'.mp3')
             os.symlink(args.d_i.rstrip('/')+'/'+fname_mid, args.d_o.rstrip('/')+'/midi/'+attribute+'_'+number+'.midi')
     print('** done **')

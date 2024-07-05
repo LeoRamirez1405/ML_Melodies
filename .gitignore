@@ -11,3 +11,13 @@ corpus/GUITAR-V0/reference
 corpus/GUITAR-V0/label
 result/test/
 __pycache__
+
+corpus/GUITAR-V1/guitar-v1.0.0
+corpus/GUITAR-V1/list
+corpus/GUITAR-V1/dataset
+corpus/GUITAR-V1/feature
+corpus/GUITAR-V1/midi
+corpus/GUITAR-V1/mp3
+corpus/GUITAR-V1/note
+corpus/GUITAR-V1/reference
+corpus/GUITAR-V1/label
