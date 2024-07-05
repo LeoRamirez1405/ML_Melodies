@@ -62,8 +62,11 @@ class AMT():
         ## melfilter: htk
         ## normalize: none -> slaney
 
+        print('-'*50)
+        print(f_wav)
         f_wav = os.path.realpath(f_wav)
         print(f_wav)
+        print('-'*50)
         wave, sr = torchaudio.load(f_wav,format='mp3')
         wave_mono = torch.mean(wave, dim=0)
         tr_fsconv = torchaudio.transforms.Resample(sr, self.config['feature']['sr'])
