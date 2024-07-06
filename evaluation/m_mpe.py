@@ -13,11 +13,11 @@ def note2freq(note_number):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('-f_config', help='config json file', default='../corpus/config.json')
-    parser.add_argument('-f_list', help='file list', default='../corpus/MAESTRO/LIST/testLeo.list')
-    parser.add_argument('-d_ref', help='reference directory', default='../corpus/MAPS/ref_16ms_new')
-    parser.add_argument('-d_est', help='estimation directory', default='result/')
-    parser.add_argument('-d_out', help='output directory', default='result/')
+    parser.add_argument('-f_config', help='config json file')
+    parser.add_argument('-f_list', help='file list')
+    parser.add_argument('-d_ref', help='reference directory')
+    parser.add_argument('-d_est', help='estimation directory')
+    parser.add_argument('-d_out', help='output directory')
     parser.add_argument('-thred_mpe', help='threshold value for MPE (default=0.5)', type=float, default=float(0.5))
     parser.add_argument('-hop', help='hop length(ms) (default=16)', type=int, choices=[10, 16], default=16)
     parser.add_argument('-output', help='output_1st(1st)|output_2nd(2nd)', default='2nd')

@@ -22,7 +22,7 @@ if __name__ == '__main__':
     parser.add_argument('-d_list', help='output list directory name', default='LIST')
     args = parser.parse_args()
 
-    print('** make list for MAESTRO **')
+    print('** make list for GUITARSET **')
     with open(args.i, 'r', encoding='utf-8') as fi:
         a_in = fi.readlines()
     d_list = args.d_list.rstrip('/')

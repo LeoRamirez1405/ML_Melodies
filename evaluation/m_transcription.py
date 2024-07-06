@@ -7,10 +7,10 @@ import numpy as np
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('-f_list', help='file list', default='../corpus/MAESTRO/LIST/testLeo.list')
-    parser.add_argument('-d_ref', help='reference directory', default='../corpus/MAPS/ref_16ms_new')
-    parser.add_argument('-d_est', help='estimation directory', default='result/')
-    parser.add_argument('-d_out', help='output directory', default='result/')
+    parser.add_argument('-f_list', help='file list')
+    parser.add_argument('-d_ref', help='reference directory')
+    parser.add_argument('-d_est', help='estimation directory')
+    parser.add_argument('-d_out', help='output directory')
     parser.add_argument('-velocity', help='w/ velocity', action='store_true')
     parser.add_argument('-output', help='output_1st(1st)|output_2nd(2nd)', default='2nd')
     args = parser.parse_args()

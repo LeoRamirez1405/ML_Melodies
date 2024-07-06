@@ -245,12 +245,12 @@ def make_dataset(filelist, attribute, d_feature, d_label, d_dataset, config, n_d
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('-d_dataset', help='dataset directory(output)', default='/mnt/hdd1/AMT_EVENT/corpus/MAPS/dataset')
-    parser.add_argument('-d_list', help='corpus list directory', default='../corpus/MAESTRO/LIST/')
-    parser.add_argument('-d_feature', help='feature file directory', default='../corpus/MAESTRO/fe_10ms/MEL/')
-    parser.add_argument('-d_label', help='label file directory', default='../corpus/MAESTRO/label_10ms/')
-    parser.add_argument('-f_config_in', help='config json file(input)', default='config.json')
-    parser.add_argument('-f_config_out', help='config json file(output)', default='config.json')
+    parser.add_argument('-d_dataset', help='dataset directory(output)')
+    parser.add_argument('-d_list', help='corpus list directory')
+    parser.add_argument('-d_feature', help='feature file directory')
+    parser.add_argument('-d_label', help='label file directory')
+    parser.add_argument('-f_config_in', help='config json file(input)')
+    parser.add_argument('-f_config_out', help='config json file(output)')
     parser.add_argument('-n_div_train', help='number of dataset division (train)', type=int, default=1)
     parser.add_argument('-n_div_valid', help='number of dataset division (valid)', type=int, default=1)
     parser.add_argument('-n_div_test', help='number of dataset division (test)', type=int, default=1)

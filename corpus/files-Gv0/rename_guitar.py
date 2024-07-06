@@ -5,12 +5,12 @@ import argparse
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('-d_i', help='MAESTRO original corpus directory (input)', default='/mnt/hdd1/AMT/corpus/MAESTRO/MAESTRO')
-    parser.add_argument('-d_o', help='MAESTRO renamed corpus directory (output)', default='/mnt/hdd1/AMT/corpus/MAESTRO')
+    parser.add_argument('-d_i', help='GUiTARSET original corpus directory (input)')
+    parser.add_argument('-d_o', help='GUiTARSET renamed corpus directory (output)')
     parser.add_argument('-d_list', help='corpus list directory')
     args = parser.parse_args()
 
-    print('** rename MAESTRO mp3/midi file **')
+    print('** rename GUITARSET mp3/midi file **')
     with open(args.d_list.rstrip('/')+'/'+'global'+'.tsv', 'r', encoding='utf-8') as f:
         a_in = f.readlines()
     for i in range(1, len(a_in)):

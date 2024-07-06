@@ -38,10 +38,6 @@ def transcribir_audio_a_midi(ruta_audio, ruta_modelo, ruta_config, ruta_salida_m
 
     print('Archivo MIDI generado correctamente:', ruta_salida_midi)
 
-# model = "/mnt/c/Users/53527/Desktop/ML_Melodies/checkpoint/MAESTRO-V3/model_016_003.pkl"
-# config = "/mnt/c/Users/53527/Desktop/ML_Melodies/corpus/MAESTRO-V3/dataset/config.json"
-# output = "/mnt/c/Users/53527/Desktop/ML_Melodies/output.midi"
-
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Transcribe audio to MIDI.')
     parser.add_argument('audio', type=str, help='Path to the audio file')

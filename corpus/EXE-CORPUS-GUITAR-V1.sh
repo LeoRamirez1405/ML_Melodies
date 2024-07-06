@@ -1,19 +1,15 @@
 #! /bin/bash
 
-## MAESTRO v3.0.0
 CURRENT_DIR=$(pwd)
-
-# 1. download MAESTRO v3.0.0 data and expand them
-# mkdir -p $CURRENT_DIR/corpus/GUITAR-V1
 
 # # 2. make lists that include train/valid/test split
 # mkdir -p $CURRENT_DIR/corpus/GUITAR-V1/list
-# python3 $CURRENT_DIR/corpus/make_list_maestro.py -i $CURRENT_DIR/corpus/GUITAR-V1/guitar-v1.0.0/guitar-v1.0.0.csv -d_list $CURRENT_DIR/corpus/GUITAR-V1/list
+# python3 $CURRENT_DIR/corpus/make_list_GUITARSET.py -i $CURRENT_DIR/corpus/GUITAR-V1/guitar-v1.0.0/guitar-v1.0.0.csv -d_list $CURRENT_DIR/corpus/GUITAR-V1/list
 
 # # 3. rename the files
 # mkdir -p $CURRENT_DIR/corpus/GUITAR-V1/midi
 # mkdir -p $CURRENT_DIR/corpus/GUITAR-V1/mp3
-# python3 $CURRENT_DIR/corpus/rename_maestro.py -d_i $CURRENT_DIR/corpus/GUITAR-V1/guitar-v1.0.0 -d_o $CURRENT_DIR/corpus/GUITAR-V1 -d_list $CURRENT_DIR/corpus/GUITAR-V1/list
+# python3 $CURRENT_DIR/corpus/rename_GUITARSET.py -d_i $CURRENT_DIR/corpus/GUITAR-V1/guitar-v1.0.0 -d_o $CURRENT_DIR/corpus/GUITAR-V1 -d_list $CURRENT_DIR/corpus/GUITAR-V1/list
 
 # 4. convert wav to log-mel spectrogram
 mkdir -p $CURRENT_DIR/corpus/GUITAR-V1/feature
