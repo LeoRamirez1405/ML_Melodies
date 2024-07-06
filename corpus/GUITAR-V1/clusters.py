@@ -87,22 +87,6 @@ def calculate_clustering_metrics(features, k_values):
 def plot_metrics(k_values, metrics):
     plt.figure(figsize=(14, 10))
 
-    plt.subplot(2, 2, 1)
-    plt.plot(k_values, metrics["silhouette_scores"], marker='o')
-    plt.title('Coeficiente de Silueta para diferentes valores de k')
-    plt.xlabel('Número de clusters k')
-    plt.ylabel('Coeficiente de Silueta')
-    plt.xticks(k_values)
-    plt.grid(True)
-
-    #plt.subplot(2, 2, 2)
-    #plt.plot(k_values, metrics["inertia_scores"], marker='o')
-    #plt.title('Inercia para diferentes valores de k')
-    #plt.xlabel('Número de clusters k')
-    #plt.ylabel('Inercia')
-    #plt.xticks(k_values)
-    #plt.grid(True)
-
     plt.subplot(2, 2, 3)
     plt.plot(k_values, metrics["davies_bouldin_scores"], marker='o')
     plt.title('Índice de Davies-Bouldin para diferentes valores de k')
@@ -158,10 +142,40 @@ def split_dict(original_dict):
     return train, validation, test
 
 def get_splits(route = "./../GUITAR-V0/feature/"):
-    features = load_all_plckle_from_folder(route)
-    features_values = [values.flatten() for values in features.values()]
-    cluster_feat = cluster_features(features_values,5)
-    return split_dict(cluster_feat)
+    metrics = {}
+    feat = [3,5,8,10,25,50]
+    for fea in feat:
+        features = load_all_plckle_from_folder(route,fea)
+        features_values = [values.flatten() for values in features.values()]
+        # cluster_feat = cluster_features(features_values,3)
+        metrics[fea] = calculate_clustering_metrics(features_values, [2,3,4,5,6,7])
+    plot_metrics_by_pca([2,3,4,5,6,7], metrics, feat)
+        
+def plot_metrics_by_pca(k_values, metrics, pca_components:list):
+    plt.figure(figsize=(14, 10))
+    print(metrics)
+    for index, pca_component in enumerate(pca_components):
+        # for i,metric in metrics.items():
+            plt.subplot(1,2,2)
+            plt.plot(k_values, metrics[pca_component]['davies_bouldin_scores'], marker='o', label=f"PCA={pca_component}")
+            plt.title('Índice de Davies-Bouldin para diferentes valores de k')
+            plt.xlabel('Número de clusters k')
+            plt.ylabel('Índice de Davies-Bouldin')
+            plt.xticks(k_values)
+            plt.legend()
+
+            plt.grid(True)
+            plt.subplot(1,2,1)
+            plt.plot(k_values, metrics[pca_component]['calinski_harabasz_scores'], marker='o', label=f"PCA={pca_component}")
+            plt.title('Índice de Calinski-Harabasz para diferentes valores de k')
+            plt.xlabel('Número de clusters k')
+            plt.ylabel('Índice de Calinski-Harabasz')
+            plt.xticks(k_values)
+            plt.legend()
+            plt.grid(True)
+    
+    plt.tight_layout()
+    plt.show()
 
 print(get_splits())
 # Imprimir tamaños de los conjuntos

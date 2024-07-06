@@ -1,7 +1,9 @@
 import sys
-sys.path.append('/mnt/c/Uni/4to/ML-Repo/ML_Melodies')  # Asegúrate de que esta ruta sea correcta
+sys.path.append("/mnt/c/Users/53527/Desktop/ML_Melodies")  # Asegúrate de que esta ruta sea correcta
 from model import amt
 import json
+import argparse
+
 def transcribir_audio_a_midi(ruta_audio, ruta_modelo, ruta_config, ruta_salida_midi):
     """
     Transcribe un archivo de audio a MIDI utilizando el modelo de transcripción musical.
@@ -36,9 +38,17 @@ def transcribir_audio_a_midi(ruta_audio, ruta_modelo, ruta_config, ruta_salida_m
 
     print('Archivo MIDI generado correctamente:', ruta_salida_midi)
 
-audio = "/mnt/c/Users/53527/Desktop/ML_Melodies/corpus/MAESTRO-V3/maestro-v3.0.0/2004/g.mp3"
-model = "/mnt/c/Users/53527/Desktop/ML_Melodies/checkpoint/MAESTRO-V3/model_016_003.pkl"
-config = "/mnt/c/Users/53527/Desktop/ML_Melodies/corpus/MAESTRO-V3/dataset/config.json"
-output = "/mnt/c/Users/53527/Desktop/ML_Melodies/output.midi"
+# model = "/mnt/c/Users/53527/Desktop/ML_Melodies/checkpoint/MAESTRO-V3/model_016_003.pkl"
+# config = "/mnt/c/Users/53527/Desktop/ML_Melodies/corpus/MAESTRO-V3/dataset/config.json"
+# output = "/mnt/c/Users/53527/Desktop/ML_Melodies/output.midi"
 
-transcribir_audio_a_midi(audio,model,config,output)
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description='Transcribe audio to MIDI.')
+    parser.add_argument('audio', type=str, help='Path to the audio file')
+    parser.add_argument('model', type=str, help='Path to the trained model')
+    parser.add_argument('config', type=str, help='Path to the configuration file')
+    parser.add_argument('output', type=str, help='Path where the MIDI file will be saved')
+
+    args = parser.parse_args()
+
+    transcribir_audio_a_midi(args.audio, args.model, args.config, args.output)

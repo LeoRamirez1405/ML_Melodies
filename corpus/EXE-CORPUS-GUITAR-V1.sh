@@ -15,9 +15,9 @@ CURRENT_DIR=$(pwd)
 # mkdir -p $CURRENT_DIR/corpus/GUITAR-V1/mp3
 # python3 $CURRENT_DIR/corpus/rename_maestro.py -d_i $CURRENT_DIR/corpus/GUITAR-V1/guitar-v1.0.0 -d_o $CURRENT_DIR/corpus/GUITAR-V1 -d_list $CURRENT_DIR/corpus/GUITAR-V1/list
 
-# # 4. convert wav to log-mel spectrogram
-# mkdir -p $CURRENT_DIR/corpus/GUITAR-V1/feature
-# python3 $CURRENT_DIR/corpus/conv_wav2fe.py -d_list $CURRENT_DIR/corpus/GUITAR-V1/list -d_mp3 $CURRENT_DIR/corpus/GUITAR-V1/mp3 -d_feature $CURRENT_DIR/corpus/GUITAR-V1/feature -config $CURRENT_DIR/corpus/config.json
+# 4. convert wav to log-mel spectrogram
+mkdir -p $CURRENT_DIR/corpus/GUITAR-V1/feature
+python3 $CURRENT_DIR/corpus/conv_wav2fe.py -d_list $CURRENT_DIR/corpus/GUITAR-V1/list -d_mp3 $CURRENT_DIR/corpus/GUITAR-V1/mp3 -d_feature $CURRENT_DIR/corpus/GUITAR-V1/feature -config $CURRENT_DIR/corpus/config.json
 
 # 5. convert midi to note
 # mkdir -p $CURRENT_DIR/corpus/GUITAR-V1/note
@@ -32,6 +32,6 @@ CURRENT_DIR=$(pwd)
 # python3 $CURRENT_DIR/corpus/conv_note2ref.py -f_list $CURRENT_DIR/corpus/GUITAR-V1/list/valid.list -d_note $CURRENT_DIR/corpus/GUITAR-V1/note -d_ref $CURRENT_DIR/corpus/GUITAR-V1/reference
 # python3 $CURRENT_DIR/corpus/conv_note2ref.py -f_list $CURRENT_DIR/corpus/GUITAR-V1/list/test.list -d_note $CURRENT_DIR/corpus/GUITAR-V1/note -d_ref $CURRENT_DIR/corpus/GUITAR-V1/reference
 
-# 8. make dataset
-mkdir -p $CURRENT_DIR/corpus/GUITAR-V1/dataset
-python3 $CURRENT_DIR/corpus/make_dataset.py -f_config_in $CURRENT_DIR/corpus/config.json -f_config_out $CURRENT_DIR/corpus/GUITAR-V1/dataset/config.json -d_dataset $CURRENT_DIR/corpus/GUITAR-V1/dataset -d_list $CURRENT_DIR/corpus/GUITAR-V1/list -d_feature $CURRENT_DIR/corpus/GUITAR-V1/feature -d_label $CURRENT_DIR/corpus/GUITAR-V1/label -n_div_train 1 -n_div_valid 1 -n_div_test 1
+# # 8. make dataset
+# mkdir -p $CURRENT_DIR/corpus/GUITAR-V1/dataset
+# python3 $CURRENT_DIR/corpus/make_dataset.py -f_config_in $CURRENT_DIR/corpus/config.json -f_config_out $CURRENT_DIR/corpus/GUITAR-V1/dataset/config.json -d_dataset $CURRENT_DIR/corpus/GUITAR-V1/dataset -d_list $CURRENT_DIR/corpus/GUITAR-V1/list -d_feature $CURRENT_DIR/corpus/GUITAR-V1/feature -d_label $CURRENT_DIR/corpus/GUITAR-V1/label -n_div_train 8 -n_div_valid 1 -n_div_test 1
