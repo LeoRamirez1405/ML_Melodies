@@ -11,7 +11,7 @@ corpus/GUITAR-V0/reference
 corpus/GUITAR-V0/label
 result/test/
 __pycache__
-
+pruebas/
 corpus/GUITAR-V1/guitar-v1.0.0
 corpus/GUITAR-V1/list
 corpus/GUITAR-V1/dataset
@@ -21,3 +21,4 @@ corpus/GUITAR-V1/mp3
 corpus/GUITAR-V1/note
 corpus/GUITAR-V1/reference
 corpus/GUITAR-V1/label
+ML_video.mp4
